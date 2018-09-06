@@ -96,6 +96,8 @@ int		read_line(int fd, t_bufs *list, char **line, t_bufs **head)
 	if (line[0][0])
 		return (1);
 	free_list(list, head);
+	free(*line);
+	*line = NULL;
 	return (0);
 }
 
