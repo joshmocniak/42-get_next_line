@@ -10,3 +10,22 @@ Created C function, that when called successively on a file descriptor, reads th
 RETURN VALUE
 Returns 1 when a line has been successfully read.  0 when reading has completed.  -1 on error.
 
+
+Getting Started
+---------------
+
+Clone the repo and fetch 42-libft submodule
+<pre>
+git clone --recurse-submodules https://github.com/joshmocniak/42-get_next_line.git
+</pre>
+Compile 42-libft
+<pre>
+cd 42-get_next_line/42-libft
+make
+cd ..
+</pre>
+Compile and run project that uses get_next_line
+<pre>
+gcc -I 42-libft get_next_line.c main.c
+./a.out
+</pre>
