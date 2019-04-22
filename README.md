@@ -20,7 +20,7 @@ Getting Started
   `make -C 42-libft`   
 3. Compile and run project that uses get_next_line  
   Create file test_project.c in the root of the repository.  (example file below)  
-  `gcc -I42-libft -L42-libft -lft get_next_line.c test_project.c -o test_project`
+  `gcc -I42-libft -L42-libft -lft get_next_line.c test_project.c -o test_project`  
   `./test_project`  
 
 test_project.c
