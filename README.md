@@ -16,9 +16,8 @@ Getting Started
 1. Clone the repo and fetch 42-libft submodule  
   `git clone --recurse-submodules https://github.com/joshmocniak/42-get_next_line.git`  
 2. Compile 42-libft  
-  `cd 42-get_next_line/42-libft`  
-  `make`  
-  `cd ..`  
+  `cd 42-get_next_line`  
+  `make -C 42-libft`   
 3. Compile and run project that uses get_next_line  
   `gcc -I 42-libft get_next_line.c test_project.c -o test_project`  
   `./test_project`  
