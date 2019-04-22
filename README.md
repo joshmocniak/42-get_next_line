@@ -19,7 +19,8 @@ Getting Started
   `cd 42-get_next_line`  
   `make -C 42-libft`   
 3. Compile and run project that uses get_next_line  
-  `gcc -I 42-libft get_next_line.c test_project.c -o test_project`  
+  Create file test_project.c in the root of the repository.  (example file below)  
+  `gcc -I42-libft -L42-libft -lft get_next_line.c test_project.c -o test_project`
   `./test_project`  
 
 test_project.c
@@ -27,11 +28,15 @@ test_project.c
 
 ```C
 #include "get_next_line.h"
-
+#include "libft.h"
+#include <stdlib.h>
+#include <fcntl.h>
 
 void  print_and_free(char **line)
 {
-  //placeholder
+	ft_putendl(*line);
+	free(*line);
+	*line = NULL;
 }
 
 int   main(void)
@@ -41,14 +46,13 @@ int   main(void)
   int   fd2;
   int   ret;
   char  *line = NULL;
-  
-  fd1 = open('file.txt', O_RDONLY);
-  fd2 = open('anotherfile.txt', O_RDONLY);
-  
-  ret = get_next_line(fd, &line);
-  //placeholder
-  close(fd);
+
+  fd1 = open("file.txt", O_RDONLY);
+  //fd2 = open('anotherfile.txt', O_RDONLY);
+
+  ret = get_next_line(fd1, &line);
+  print_and_free(&line);
+  close(fd1);
   return (0);
 }
-
 ```
