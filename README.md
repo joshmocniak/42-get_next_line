@@ -41,18 +41,64 @@ void  print_and_free(char **line)
 
 int   main(void)
 {
-  int   fd0 = 0; //stdin
-  int   fd1;
-  int   fd2;
-  int   ret;
-  char  *line = NULL;
+	int	fd1;
+	int	fd2;
+	int	ret1;
+	int	ret2;
+	char	*line = NULL;
 
-  fd1 = open("file.txt", O_RDONLY);
-  //fd2 = open('anotherfile.txt', O_RDONLY);
+	fd1 = open("file.txt", O_RDONLY);
+	fd2 = open("file2.txt", O_RDONLY);
 
-  ret = get_next_line(fd1, &line);
-  print_and_free(&line);
-  close(fd1);
-  return (0);
+	ret1 = get_next_line(fd1, &line);
+	print_and_free(&line);
+	ret1 = get_next_line(fd1, &line);
+	print_and_free(&line);
+	ret2 = 1;
+	while (ret1 == 1 || ret2 == 1)
+	{
+		if ((ret1 = get_next_line(fd1, &line)) == 1)
+			print_and_free(&line);
+		if ((ret2 = get_next_line(fd2, &line)) == 1)
+			print_and_free(&line);
+	}
+	close(fd1);
+	close(fd2);
+	return (0);
 }
 ```
+
+file.txt
+--------
+<pre>
+1234
+abcd
+day
+night
+last line
+</pre>
+
+file2.txt
+---------
+<pre>
+a simple demonstration
+of how
+get_next_line
+can read from
+a few files
+</pre>
+
+Output
+------
+<pre>
+1234
+abcd
+day
+a simple demonstration
+night
+of how
+last line
+get_next_line
+can read from
+a few files
+</pre
