@@ -50,10 +50,10 @@ int   main(void)
 	fd1 = open("file.txt", O_RDONLY);
 	fd2 = open("file2.txt", O_RDONLY);
 
-	ret1 = get_next_line(fd1, &line);
-	print_and_free(&line);
-	ret1 = get_next_line(fd1, &line);
-	print_and_free(&line);
+	if ((ret1 = get_next_line(fd1, &line)) == 1)
+		print_and_free(&line);
+	if ((ret1 = get_next_line(fd1, &line)) == 1)
+		print_and_free(&line);
 	ret2 = 1;
 	while (ret1 == 1 || ret2 == 1)
 	{
@@ -101,4 +101,4 @@ last line
 get_next_line
 can read from
 a few files
-</pre
+</pre>
